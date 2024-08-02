@@ -1,0 +1,76 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: local
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false
+        git:
+          uri: git@github.com:jinpold/ggun-secret-server-ncp.git
+            # search-paths: secret-service/**
+            # config 서버는 기본적으로 8888번 포트를 사용
+            # 그 외에 설정 파일이 있는 위치와 디렉토리 매칭
+            # uri: 설정파일이 있는 깃 주소
+          # default-label: 깃 주소의 브랜치 이름
+          # search-paths: 설정 파일들을 찾을 경로
+          default-label: main
+          ignoreLocalSshSettings: true
+          strictHostKeyChecking: false
+          hostKey: # ssh-keyscan 명령어로 확인
+          hostKeyAlgorithm:  # ssh-keyscan 명령어로 확인
+          private-key: |
+                        -----BEGIN OPENSSH PRIVATE KEY-----
+                        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+                        NhAAAAAwEAAQAAAYEA315u5UWJT7AS6O22cEJMfctIfbrBk5klE/QfRQQm6pVxxTEYSFiK
+                        msr6O/P/xQWHsrB5ArIVeSfnHczJkSWit2o1wWkVAa65+cCQuvznAOzvVRORxo+gY0ocFr
+                        QNVEmZLiNE5NIKWLfOA3xLDzY8iDGB8gwydbiUpjvxbbOePmQgKIyo7YK689MswmY4ArYI
+                        EQgb39ep30cTxOa29n5PCJDcS3AI1etiFNrjT8QFGPc/jqhRaJr+DD6gXWhlIpPHCGBZv8
+                        p8tTUJPvHHJh4Df5Mvmx7MKPtrh0kN8KMLhlnQZgjqtZydu/YwPL421xnkqjbEPcAWAO8Q
+                        o09aKPPcekriIw8sMWjb+YMlRyc+FMyZTVPNatHhGfhnSBq/sAylkxaop68ZOUFfxujr8t
+                        E83SByHkrW9Whkuby90Avq2jbYd2Fm21gorwoLGd1hw2CaxVLCIVqVjbxB4eVS65/9TkIO
+                        iXNlg/WvYn3zZnD0M42pkr7A+qH9AtRyVVGbR+G5AAAFgIiA8HiIgPB4AAAAB3NzaC1yc2
+                        EAAAGBAN9ebuVFiU+wEujttnBCTH3LSH26wZOZJRP0H0UEJuqVccUxGEhYiprK+jvz/8UF
+                        h7KweQKyFXkn5x3MyZElordqNcFpFQGuufnAkLr85wDs71UTkcaPoGNKHBa0DVRJmS4jRO
+                        TSCli3zgN8Sw82PIgxgfIMMnW4lKY78W2znj5kICiMqO2CuvPTLMJmOAK2CBEIG9/Xqd9H
+                        E8TmtvZ+TwiQ3EtwCNXrYhTa40/EBRj3P46oUWia/gw+oF1oZSKTxwhgWb/KfLU1CT7xxy
+                        YeA3+TL5sezCj7a4dJDfCjC4ZZ0GYI6rWcnbv2MDy+NtcZ5Ko2xD3AFgDvEKNPWijz3HpK
+                        4iMPLDFo2/mDJUcnPhTMmU1TzWrR4Rn4Z0gav7AMpZMWqKevGTlBX8bo6/LRPN0gch5K1v
+                        VoZLm8vdAL6to22HdhZttYKK8KCxndYcNgmsVSwiFalY28QeHlUuuf/U5CDolzZYP1r2J9
+                        82Zw9DONqZK+wPqh/QLUclVRm0fhuQAAAAMBAAEAAAGBALfxGx+BGOdfluLsRs3BOx5oVg
+                        T700dJ2SfKZCnAlo+di7gYiuegyltYhaLzdw/3Ut0KyEw4/Mft3TxEFUWLGakzNJtWfq8J
+                        BSuvsT/a3hx8AUctO2GpiynYsLLdiRB9H0DIWIaalVyj2Go0Y9deEZESO/Foq/EXlIokWN
+                        e/D7RPXdAmrUIR4wTBRV29MajB4HiuFc5K2h/9d0ExwT/RmiHysQcKdqw7D2UfMAvS32PE
+                        0DkZURj0cfsBY6woOQi1aaru0pK5ryMlFE1ck+9eOZUsawkOY/w5T9fLP6Uv2T8x0cdiFj
+                        FptNshiw68FR+NSXXAGpPwBXS5z8zUERvMHWrmk2JjwIQaYW9CQHjWuYo2jy+B5jXPDO99
+                        ESnHRw0ukoIXqkXA4nsG7I7PAmrYbljGxDbSZAKjCTnXmNXWw71VwOx/F8xGWZWUaqWs5M
+                        AIpVebERrMHmPXLm2jB6eti1VZE70msVWCq1hYdJ3T60M+r+LHVu3SyXN7MWpxeXKaZQAA
+                        AMAcwD8Eb05HLV9/PeyK4Magxpxz8E3eNHdzxR3ofjuKk0oDaNFg8oy+iSjZ3miYP7Ctkj
+                        yVgqNRw8zr1STKk8OS2MoEDS42gqiizAvKfYZbD112oUjSFoX4/oipz8W3z/dmEnUo/qaW
+                        ckdOkjAvA1NsJznPle1B+MZ6RML4stsUZ0saDVQmVwVGPYfamgaMN1N4y/+ARGXhganfxX
+                        SAAEJtuOmVk8kjJFLJA/msjl6j1+Jm2WUP7v62GCU384+Jr3AAAADBAPZLtGPuKbjSMgbS
+                        owNlGYyXoad1CZWmGD3r4XEby/Ta//uE7LW82jJuh93g0l5fERyFwVTfNUpAUZDZV2xw0m
+                        hQMGgLABjb7S05h90lkw8p9Qj18XAKXJMSr+Wyb5cIRxpY9BfAdk6/ZKpgPUTrR2ONdw5b
+                        lej6gKygqQcXu2olqOU0zMYJGKVMQ5MISHj8rkF72UdoF4IUW45u3F4e4XfBUESi7kFgJv
+                        3xeAJw+OE7Vrl/vbIZO57GzCAkz/FK0wAAAMEA6Ct5TIdOxkWJx7O+NB7ev3kt7XiL4p04
+                        wYGHx4DXs1SGubQgSaKqrqe1WOziop9DFhxdJ2T6BWw+yW5l0YiqADNn3/2vAu4oM0sZ00
+                        IgDF2mnWCY/TKB+iY1yzBBZAvU++MzXzwqzW7hhZDUnkKB+HdMQ0ebTWQKD6hjv1JfnxPH
+                        flPWovUbt3/IACdG/BaNLMffyYimi6CG75KdOkPcb/FJR5jAZ0F9IIE0+2dtP9KCp+E9nO
+                        mLZQvgLLB/QLHDAAAACWppbnBvQGppbgE=
+                        -----END OPENSSH PRIVATE KEY-----
+# actuator ??
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+  endpoint:
+    shutdown:
+      enabled: true
+encrypt:
+  key: my-secret  #???
+

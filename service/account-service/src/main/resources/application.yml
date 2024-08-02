@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: account-service
+  profiles:
+    active: local
+  config:
+    import: optional:configserver:http://175.106.98.184:8888
