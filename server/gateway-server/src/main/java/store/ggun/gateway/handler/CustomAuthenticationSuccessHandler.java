@@ -1,24 +1,22 @@
 package store.ggun.gateway.handler;
 
 
-import java.net.URI;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.server.WebFilterExchange;
 import org.springframework.security.web.server.authentication.ServerAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 import store.ggun.gateway.domain.dto.MessengerDto;
 import store.ggun.gateway.domain.model.PrincipalUserDetails;
 import store.ggun.gateway.service.provider.JwtTokenProvider;
+
+import java.net.URI;
 
 
 @Slf4j

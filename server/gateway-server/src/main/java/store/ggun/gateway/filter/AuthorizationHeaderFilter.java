@@ -1,6 +1,7 @@
 package store.ggun.gateway.filter;
-import java.util.List;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.core.io.buffer.DataBuffer;
@@ -9,12 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
-
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 import store.ggun.gateway.domain.vo.Role;
 import store.ggun.gateway.service.provider.JwtTokenProvider;
+
+import java.util.List;
 
 
 @Slf4j

@@ -6,12 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
-import org.springframework.security.oauth2.client.registration.ClientRegistration;
-import org.springframework.security.oauth2.client.registration.InMemoryReactiveClientRegistrationRepository;
 import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.server.DefaultServerOAuth2AuthorizationRequestResolver;
 import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizationRequestResolver;
-import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository;
 import org.springframework.web.cors.CorsConfiguration;
@@ -28,25 +25,12 @@ import java.util.List;
 public class WebSecurityConfig {
     private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
     private final CustomAuthenicationFailureHandler customAuthenicationFailureHandler;
-    @Bean
-    public ReactiveClientRegistrationRepository reactiveClientRegistrationRepository() {
-        ClientRegistration registration = ClientRegistration.withRegistrationId("my-client")
-                .clientId("your-client-id")
-                .clientSecret("your-client-secret")
-                .scope("read", "write")
-                .authorizationUri("http://example.com/oauth/authorize")
-                .tokenUri("http://example.com/oauth/token")
-                .userInfoUri("http://example.com/userinfo")
-                .redirectUri("http://localhost:8080/login/oauth2/code/my-client")
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .build();
+    private final ReactiveClientRegistrationRepository reactiveClientRegistrationRepository;
 
-        return new InMemoryReactiveClientRegistrationRepository(registration);
-    }
 
     @Bean
     public ServerOAuth2AuthorizationRequestResolver serverOAuth2AuthorizationRequestResolver() {
-        return new DefaultServerOAuth2AuthorizationRequestResolver(reactiveClientRegistrationRepository());
+        return new DefaultServerOAuth2AuthorizationRequestResolver(reactiveClientRegistrationRepository);
     }
 
 

@@ -1,5 +1,6 @@
 package store.ggun.gateway.service.impl;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.security.oauth2.client.userinfo.DefaultReactiveOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -8,8 +9,6 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 import store.ggun.gateway.domain.model.OAuth2UserDto;
 import store.ggun.gateway.domain.model.PrincipalUserDetails;
